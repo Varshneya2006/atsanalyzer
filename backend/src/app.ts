@@ -19,6 +19,7 @@ import adminRoutes from "./routes/adminRoutes";
 import reportRoutes from "./routes/reportRoutes";
 
 const app: Application = express();
+app.set('trust proxy', 1);
 
 // --- Security & utility middleware ---
 app.use(helmet());
