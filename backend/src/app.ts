@@ -24,8 +24,10 @@ const app: Application = express();
 app.use(helmet());
 app.use(
   cors({
-    origin: env.CLIENT_URL,
+    origin: env.CLIENT_URL || "http://localhost:5173", // Fallback ensures your local Vite dev server can connect
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 app.use(compression());
